@@ -77,7 +77,6 @@ const recieve = async (req,res) => {
           cT = await channel.consume(user_id , msg=>{
               if(msg){
                 sendEmail(msg)
-                console.log(msg.content.toString())
                 channel.ack(msg)
             }
             
