@@ -25,7 +25,10 @@ app.use('/api/reports', reportRoutes)
 app.use('/api/feedback', feedbackRoutes)
 app.use('/api/ratings', ratingRoutes)
 
-mongoose.connect(process.env.MONG_URI)
+mongoose.connect(process.env.MONG_URI,{
+   useNewUrlParser: true,
+   useUnifiedTopology: true
+})
  .then(()=>{
     app.listen(process.env.PORT , ()=>{
         console.log("connected to db & listening on port :", process.env.PORT)
